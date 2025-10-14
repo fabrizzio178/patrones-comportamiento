@@ -11,13 +11,13 @@ El objetivo de este proyecto es entender cómo aplicarlos de manera práctica me
 El patrón State permite que un objeto cambie su comportamiento interno cuando cambia su estado, sin utilizar condicionales ni modificar la clase principal.
 Cada estado se encapsula en una clase distinta, y el contexto (por ejemplo, la máquina de café) delega el comportamiento al estado actual.
 
-Estructura conceptual
+#### Estructura conceptual
 
 Contexto (MaquinaCafe): mantiene una referencia al estado actual.
 Interfaz de estado (IEstadoMaquina): define las operaciones comunes para todos los estados.
 Estados concretos: implementan la interfaz y definen comportamientos específicos (por ejemplo, EstadoEsperandoMoneda, EstadoPreparandoCafe).
 
-Funcionamiento
+#### Funcionamiento:
 
 1-La máquina tiene un atributo estadoActual que implementa IEstadoMaquina.
 
@@ -32,7 +32,7 @@ Funcionamiento
 El patrón Strategy permite definir una familia de algoritmos intercambiables y encapsularlos en clases independientes.
 El contexto utiliza una referencia a una estrategia concreta, que puede cambiarse dinámicamente en tiempo de ejecución.
 
-Estructura conceptual
+#### Estructura conceptual
 
 Interfaz (EstrategiaPago): define el método común pagar(double monto).
 Estrategias concretas: distintas formas de pago, como PagoConTarjeta o PagoConEfectivo.
