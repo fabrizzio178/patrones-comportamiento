@@ -1,0 +1,7 @@
+com\state\entities\MaquinaCafe.class
+com\state\states\EstadoEsperandoMoneda.class
+com\state\states\EstadoPreparandoCafe.class
+com\state\states\EstadoBase.class
+com\state\states\interfaces\IEstadoMaquina.class
+com\state\App.class
+com\state\states\EstadoEntregandoCafe.class
