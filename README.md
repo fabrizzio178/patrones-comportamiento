@@ -1,4 +1,4 @@
-Patrones de Comportamiento – State y Strategy
+# Patrones de Comportamiento – State y Strategy
 
 Este repositorio contiene implementaciones en Java de dos patrones de diseño de comportamiento:
 State y Strategy.
