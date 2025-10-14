@@ -1,6 +1,10 @@
+D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\strategys\interfaces\IEstrategiaPago.java
+D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\contextos\MaquinaCafe.java
+D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\strategys\PagoConEfectivo.java
+D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\contextos\PagoContexto.java
 D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\states\EstadoEntregandoCafe.java
+D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\strategys\PagoConTarjeta.java
 D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\states\interfaces\IEstadoMaquina.java
-D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\entities\MaquinaCafe.java
 D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\states\EstadoPreparandoCafe.java
 D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\states\EstadoBase.java
 D:\Facultad tercer año\Materias\Backend De Apps\patron-state\src\main\java\com\state\states\EstadoEsperandoMoneda.java

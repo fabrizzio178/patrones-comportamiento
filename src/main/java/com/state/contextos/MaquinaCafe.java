@@ -1,8 +1,9 @@
-package com.state.entities;
+package com.state.contextos;
 
 import com.state.states.EstadoEsperandoMoneda;
 import com.state.states.interfaces.IEstadoMaquina;
 
+// Clase que sirve para ejemplificar el patrón State. La usamos como contexto
 public class MaquinaCafe {
     private IEstadoMaquina estadoActual;
     private boolean tieneEnergia = true;

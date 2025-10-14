@@ -1,7 +1,11 @@
-com\state\entities\MaquinaCafe.class
 com\state\states\EstadoEsperandoMoneda.class
+com\state\contextos\PagoContexto.class
 com\state\states\EstadoPreparandoCafe.class
+com\state\contextos\MaquinaCafe.class
+com\state\strategys\PagoConEfectivo.class
+com\state\strategys\PagoConTarjeta.class
 com\state\states\EstadoBase.class
 com\state\states\interfaces\IEstadoMaquina.class
 com\state\App.class
 com\state\states\EstadoEntregandoCafe.class
+com\state\strategys\interfaces\IEstrategiaPago.class

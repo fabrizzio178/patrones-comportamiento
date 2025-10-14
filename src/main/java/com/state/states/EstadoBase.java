@@ -1,6 +1,6 @@
 package com.state.states;
 
-import com.state.entities.MaquinaCafe;
+import com.state.contextos.MaquinaCafe;
 import com.state.states.interfaces.IEstadoMaquina;
 
 public abstract class EstadoBase implements IEstadoMaquina {

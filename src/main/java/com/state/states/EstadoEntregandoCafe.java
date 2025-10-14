@@ -1,6 +1,6 @@
 package com.state.states;
 
-import com.state.entities.MaquinaCafe;
+import com.state.contextos.MaquinaCafe;
 
 public class EstadoEntregandoCafe extends EstadoBase{
     public EstadoEntregandoCafe(MaquinaCafe maquinaCafe){
