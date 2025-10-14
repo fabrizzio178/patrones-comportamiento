@@ -38,7 +38,7 @@ Interfaz (EstrategiaPago): define el método común pagar(double monto).
 Estrategias concretas: distintas formas de pago, como PagoConTarjeta o PagoConEfectivo.
 Contexto (PagoContexto): delega la ejecución del pago a la estrategia activa.
 
-####Funcionamiento:
+#### Funcionamiento:
 
 1-El contexto define una referencia EstrategiaPago estrategia.
 
