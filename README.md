@@ -1,141 +1,124 @@
-🧩 Patrones de Comportamiento – State, Strategy, Observer e Iterator
+# 🧩 Patrones de Comportamiento – State, Strategy, Observer e Iterator
 
-Este repositorio contiene implementaciones en Java de varios patrones de diseño de comportamiento, entre ellos State, Strategy, Observer e Iterator.
-Estos patrones se enfocan en cómo los objetos interactúan y se comunican entre sí para lograr comportamientos flexibles, reutilizables y desacoplados.
+Este repositorio contiene implementaciones en Java de varios **patrones de diseño de comportamiento**, entre ellos **State**, **Strategy**, **Observer** e **Iterator**.  
+Estos patrones se enfocan en **cómo los objetos interactúan y se comunican entre sí** para lograr comportamientos flexibles, reutilizables y desacoplados.
 
-Cada implementación busca mostrar la idea esencial del patrón de forma práctica y sencilla.
+Cada implementación busca mostrar **la idea esencial del patrón** de forma práctica y sencilla.
 
-📚 Índice
+---
 
-☕ Patrón State – Máquina de Café
+## 📚 Índice
 
-💳 Patrón Strategy – Sistema de Pagos
+- [☕ Patrón State – Máquina de Café](#-patrón-state--máquina-de-café)
+- [💳 Patrón Strategy – Sistema de Pagos](#-patrón-strategy--sistema-de-pagos)
+- [🔔 Patrón Observer – Sistema de Notificaciones](#-patrón-observer--sistema-de-notificaciones)
+- [🔁 Patrón Iterator – Recorrido de Colecciones](#-patrón-iterator--recorrido-de-colecciones)
+- [🧠 Conclusión](#-conclusión)
 
-🔔 Patrón Observer – Sistema de Notificaciones
+---
 
-🔁 Patrón Iterator – Recorrido de Colecciones
+## ☕ Patrón State – Máquina de Café
 
-🧠 Conclusión
-
-☕ Patrón State – Máquina de Café
-
-El patrón State permite que un objeto cambie su comportamiento interno cuando cambia su estado, sin utilizar condicionales ni modificar la clase principal.
+El patrón **State** permite que un objeto cambie su comportamiento interno cuando cambia su estado, sin utilizar condicionales ni modificar la clase principal.  
 Cada estado se encapsula en una clase distinta, y el contexto (por ejemplo, la máquina de café) delega el comportamiento al estado actual.
 
-Estructura conceptual
+### Estructura conceptual
 
-Contexto (MaquinaCafe): mantiene una referencia al estado actual.
+- **Contexto (`MaquinaCafe`)**: mantiene una referencia al estado actual.  
+- **Interfaz de estado (`IEstadoMaquina`)**: define las operaciones comunes para todos los estados.  
+- **Estados concretos**: implementan la interfaz y definen comportamientos específicos (`EstadoEsperandoMoneda`, `EstadoPreparandoCafe`, etc.).
 
-Interfaz de estado (IEstadoMaquina): define las operaciones comunes para todos los estados.
+### Funcionamiento
 
-Estados concretos: implementan la interfaz y definen comportamientos específicos (EstadoEsperandoMoneda, EstadoPreparandoCafe, etc.).
+1. La máquina tiene un atributo `estadoActual` que implementa `IEstadoMaquina`.  
+2. Al ejecutar `presionarBoton()`, delega la acción al estado actual.  
+3. Cada estado puede cambiar el estado de la máquina usando `cambioEstado()`.  
+4. El comportamiento varía dinámicamente según el estado sin usar `if` o `switch`.
 
-Funcionamiento
+---
 
-La máquina tiene un atributo estadoActual que implementa IEstadoMaquina.
+## 💳 Patrón Strategy – Sistema de Pagos
 
-Al ejecutar presionarBoton(), delega la acción al estado actual.
-
-Cada estado puede cambiar el estado de la máquina usando cambioEstado().
-
-El comportamiento varía dinámicamente según el estado sin usar if o switch.
-
-💳 Patrón Strategy – Sistema de Pagos
-
-El patrón Strategy permite definir una familia de algoritmos intercambiables y encapsularlos en clases independientes.
+El patrón **Strategy** permite definir una familia de algoritmos intercambiables y encapsularlos en clases independientes.  
 El contexto utiliza una referencia a una estrategia concreta, que puede cambiarse dinámicamente en tiempo de ejecución.
 
-Estructura conceptual
+### Estructura conceptual
 
-Interfaz (EstrategiaPago): define el método común pagar(double monto).
+- **Interfaz (`EstrategiaPago`)**: define el método común `pagar(double monto)`.  
+- **Estrategias concretas**: distintas formas de pago (`PagoConTarjeta`, `PagoConEfectivo`).  
+- **Contexto (`PagoContexto`)**: delega la ejecución del pago a la estrategia activa.
 
-Estrategias concretas: distintas formas de pago (PagoConTarjeta, PagoConEfectivo).
+### Funcionamiento
 
-Contexto (PagoContexto): delega la ejecución del pago a la estrategia activa.
+1. El contexto define una referencia `EstrategiaPago estrategia`.  
+2. Se configura la estrategia deseada con `setEstrategia()`.  
+3. El método `ejecutarPago()` llama internamente a `estrategia.pagar(monto)`.  
+4. Se puede cambiar el comportamiento sin modificar el contexto ni usar condicionales.
 
-Funcionamiento
+---
 
-El contexto define una referencia EstrategiaPago estrategia.
+## 🔔 Patrón Observer – Sistema de Notificaciones
 
-Se configura la estrategia deseada con setEstrategia().
+El patrón **Observer** (u "Observador") establece una relación **uno-a-muchos** entre objetos:  
+cuando un objeto cambia de estado (el *sujeto*), **notifica automáticamente a todos sus observadores**.
 
-El método ejecutarPago() llama internamente a estrategia.pagar(monto).
+Este patrón se usa en sistemas de eventos, interfaces gráficas y mecanismos *publish-subscribe*.
 
-Se puede cambiar el comportamiento sin modificar el contexto ni usar condicionales.
+### Estructura conceptual
 
-🔔 Patrón Observer – Sistema de Notificaciones
+- **Sujeto (`SujetoConcreto`)**: mantiene una lista de observadores y los notifica cuando ocurre un cambio.  
+- **Interfaz de observador (`Observador`)**: define el método `actualizar()`.  
+- **Observadores concretos**: reaccionan de distintas formas ante los cambios del sujeto (`ObservadorEmail`, `ObservadorSMS`, etc.).
 
-El patrón Observer (u "Observador") establece una relación uno-a-muchos entre objetos:
-cuando un objeto cambia de estado (el sujeto), notifica automáticamente a todos sus observadores.
+### Funcionamiento
 
-Este patrón se usa en sistemas de eventos, interfaces gráficas y mecanismos publish-subscribe.
+1. Los observadores se **suscriben** al sujeto.  
+2. Cuando el sujeto cambia de estado (por ejemplo, un nuevo evento), llama a `notificarObservadores()`.  
+3. Todos los observadores reciben la actualización automáticamente.  
+4. Se pueden agregar o quitar observadores sin modificar el sujeto.
 
-Estructura conceptual
+### Ejemplo típico
 
-Sujeto (SujetoConcreto): mantiene una lista de observadores y los notifica cuando ocurre un cambio.
-
-Interfaz de observador (Observador): define el método actualizar().
-
-Observadores concretos: reaccionan de distintas formas ante los cambios del sujeto (ObservadorEmail, ObservadorSMS, etc.).
-
-Funcionamiento
-
-Los observadores se suscriben al sujeto.
-
-Cuando el sujeto cambia de estado (por ejemplo, un nuevo evento), llama a notificarObservadores().
-
-Todos los observadores reciben la actualización automáticamente.
-
-Se pueden agregar o quitar observadores sin modificar el sujeto.
-
-Ejemplo típico
-
-Una notificación de sistema de pedidos:
+Una **notificación de sistema de pedidos**:  
 cada vez que se crea un pedido nuevo, el sistema notifica al módulo de facturación, al módulo de stock y al cliente.
 
-🔁 Patrón Iterator – Recorrido de Colecciones
+---
 
-El patrón Iterator permite recorrer una colección sin exponer su estructura interna.
+## 🔁 Patrón Iterator – Recorrido de Colecciones
+
+El patrón **Iterator** permite recorrer una colección sin exponer su estructura interna.  
 Define una interfaz estándar para acceder secuencialmente a los elementos de una colección, ya sea hacia adelante, hacia atrás o en un orden particular.
 
-Estructura conceptual
+### Estructura conceptual
 
-Interfaz (NombresIterator): define los métodos hasNext() y getNext().
+- **Interfaz (`NombresIterator`)**: define los métodos `hasNext()` y `getNext()`.  
+- **Colección (`NombresCollection`)**: guarda los elementos y crea los iteradores.  
+- **Iteradores concretos**: implementan distintas formas de recorrido (`NombresIteratorNormal`, `NombresIteratorInverso`).  
 
-Colección (NombresCollection): guarda los elementos y crea los iteradores.
+### Funcionamiento
 
-Iteradores concretos: implementan distintas formas de recorrido (NombresIteratorNormal, NombresIteratorInverso).
+1. El cliente solicita un iterador a la colección (`crearIterador()` o `crearIteradorInverso()`).  
+2. El iterador se encarga de recorrer los elementos sin que el cliente conozca su estructura interna.  
+3. El recorrido puede modificarse fácilmente creando un nuevo tipo de iterador.  
 
-Funcionamiento
+### Ejemplo típico
 
-El cliente solicita un iterador a la colección (crearIterador() o crearIteradorInverso()).
+Una **lista de nombres** que puede recorrerse normalmente o en orden inverso, sin cambiar el código del cliente.
 
-El iterador se encarga de recorrer los elementos sin que el cliente conozca su estructura interna.
+---
 
-El recorrido puede modificarse fácilmente creando un nuevo tipo de iterador.
-
-Ejemplo típico
-
-Una lista de nombres que puede recorrerse normalmente o en orden inverso, sin cambiar el código del cliente.
-
-🧠 Conclusión
+## 🧠 Conclusión
 
 Todos estos patrones promueven los mismos principios:
 
-Composición sobre herencia.
+- **Composición sobre herencia.**  
+- **Desacoplamiento entre objetos.**  
+- **Código extensible sin modificar lo existente.**  
+- **Facilidad de mantenimiento y pruebas.**
 
-Desacoplamiento entre objetos.
+#### Próximos patrones a implementar
 
-Código extensible sin modificar lo existente.
-
-Facilidad de mantenimiento y pruebas.
-
-Próximos patrones a implementar
-
-Command (Comando)
-
-Template Method (Método Plantilla)
-
-Mediator (Mediador)
-
-Memento (Recuerdo)
+- **Command (Comando)**  
+- **Template Method (Método Plantilla)**  
+- **Mediator (Mediador)**  
+- **Memento (Recuerdo)**  
